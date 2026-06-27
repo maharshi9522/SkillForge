@@ -1,0 +1,102 @@
+/* Soft Skills Tabs */
+.softskills-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.softskills-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #e6eef8;
+  letter-spacing: -1px;
+}
+
+.softskills-desc {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #b2d6e6;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+.softskills-highlight {
+  color: #06b6d4;
+  font-weight: 600;
+}
+
+.softskills-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.softskills-tab-btn {
+  background: #072633;
+  color: #b2d6e6;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(6,182,212,0.08);
+  outline: none;
+}
+
+.softskills-tab-btn.active,
+.softskills-tab-btn:hover {
+  background: linear-gradient(90deg, #06b6d4 0%, #7c3aed 100%);
+  color: #fff;
+}
+
+.softskills-tab-content {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  min-height: 180px;
+}
+
+.softskills-card {
+  background: #072633;
+  border-radius: 0 0 14px 14px;
+  box-shadow: 0 4px 16px rgba(6,182,212,0.10);
+  padding: 32px 28px;
+  min-width: 260px;
+  max-width: 500px;
+  margin: 0 auto;
+  color: #e6eef8;
+  text-align: left;
+  animation: fadeIn 0.4s;
+}
+
+.softskills-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #06b6d4;
+}
+
+.softskills-card ul {
+  padding-left: 18px;
+  font-size: 1.08rem;
+  color: #b2d6e6;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .softskills-section {
+    padding: 12px;
+  }
+  .softskills-card {
+    padding: 18px 8px;
+  }
+  .softskills-tabs {
+    gap: 6px;
+  }
+}

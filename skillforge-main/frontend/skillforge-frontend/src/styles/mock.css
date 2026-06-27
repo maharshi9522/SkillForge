@@ -1,0 +1,282 @@
+/* mock.css - professional layout for MockInterview component
+   Keep theme colours but align everything, make header visible,
+   reduce video footprint, improve buttons, feedback card, and VU canvas.
+*/
+
+/* Root / container */
+.mock-interview-container {
+  --bg: #061826;
+  --panel: #041827;
+  --muted: #9fb6c7;
+  --accent: #06b6d4;
+  --accent-2: #7c3aed;
+  --button-blue: #2563eb;
+  --button-green: #10b981;
+  --danger: #ef4444;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #e6eef8;
+  background: linear-gradient(180deg, #031423 0%, #071827 100%);
+  min-height: 100vh;
+  padding: 28px;
+  box-sizing: border-box;
+}
+
+/* HERO / header */
+.hero {
+  position: relative;
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, rgba(2,6,23,0.6), rgba(4,19,32,0.7));
+  box-shadow: 0 8px 30px rgba(2,6,23,0.55);
+  margin-bottom: 18px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hero-title {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: -0.2px;
+  color: #e6eef8;
+  font-weight: 700;
+}
+
+.hero-text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, #041827 0%, #072633 100%);
+  padding: 56px 32px 48px 32px;
+  border-radius: 24px;
+  margin-bottom: 40px;
+  box-shadow: 0 16px 48px rgba(6,182,212,0.18), 0 2px 24px rgba(124,58,237,0.08);
+  min-width: 320px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header .title {
+  font-size: 48px;
+  font-weight: 900;
+  margin: 0 0 18px 0;
+  letter-spacing: -1.5px;
+  color: #e6eef8;
+  text-shadow: 0 4px 24px #06b6d4a0;
+  text-align: center;
+}
+
+.header .subtitle {
+  color: #b2d6e6;
+  font-size: 22px;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.6;
+  max-width: 700px;
+}
+
+/* Intro section */
+.intro-section {
+  background: linear-gradient(120deg, #041827 0%, #072633 100%);
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.45);
+  padding: 40px 32px;
+  margin-bottom: 40px;
+  text-align: center;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro-section h2 {
+  font-size: 36px;
+  margin-bottom: 16px;
+  color: #e6eef8;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.intro-section p {
+  font-size: 20px;
+  color: #b2d6e6;
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+
+.intro-section .btn {
+  font-size: 20px;
+  padding: 14px 36px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #06b6d4 0%, #7c3aed 100%);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(6,182,212,0.12);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.intro-section .btn:hover {
+  background: linear-gradient(90deg, #7c3aed 0%, #06b6d4 100%);
+}
+
+/* Main layout */
+.section.interview {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 20px;
+  align-items: start;
+}
+
+/* Question panel */
+.question-box {
+  background: var(--panel);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.5);
+}
+
+/* Buttons: shared CTA style */
+.cta-btn {
+  background: var(--button-blue);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .08s ease, box-shadow .12s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 18px rgba(37,99,235,0.12);
+}
+.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(37,99,235,0.18); }
+.cta-btn:disabled { opacity: 0.52; cursor: not-allowed; transform: none; box-shadow: none; }
+
+/* Secondary buttons */
+.cta-btn.secondary {
+  background: #0ea5a4;
+  color: #002a29;
+  box-shadow: 0 6px 18px rgba(14,165,164,0.08);
+}
+
+/* Controls area */
+.button-group, .button-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* Webcam card */
+.video-card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 0 24px #06b6d4a0, inset 0 0 60px rgba(0,0,0,0.6), 0 8px 30px rgba(0,0,0,0.45);
+  border: 2px solid #06b6d4;
+}
+
+/* Constrain video size (responsive) */
+.video-card video,
+.video-card video[playsinline] {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  display: block;
+  background: #000;
+  transform: none;
+}
+
+/* Small screens: stack columns */
+@media (max-width: 980px) {
+  .section.interview { grid-template-columns: 1fr; }
+  .video-card video { height: 180px; }
+}
+
+/* Live response box */
+.response-box {
+  background: linear-gradient(180deg, rgba(2,20,28,0.6), rgba(2,16,22,0.5));
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 6px;
+  color: #dff6f7;
+}
+
+/* Live transcript */
+.live-transcript {
+  color: #dff6f7;
+  min-height: 84px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Feedback box */
+.feedback-box {
+  background: linear-gradient(180deg, rgba(0,26,36,0.6), rgba(1,14,20,0.4));
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 12px;
+  color: #d6f1f0;
+  border: 1px solid rgba(127,187,196,0.06);
+}
+
+/* AI feedback card specifics */
+.feedback-box h4 { margin: 0 0 8px 0; font-size: 16px; }
+.feedback-box pre { background: rgba(255,255,255,0.02); padding: 10px; border-radius: 8px; overflow-x: auto; }
+
+/* Score card and metric bars */
+.score-card {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.score-badge {
+  width: 96px;
+  height: 96px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(2,6,23,0.7), rgba(4,19,32,0.8));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 28px;
+  color: #e6eef8;
+}
+
+/* metric bars container */
+.metric-row { display: flex; gap: 10px; margin-top: 8px; }
+.metric-row .metric { flex: 1; }
+
+/* Metric small text */
+.metric-label { font-size: 13px; color: var(--muted); display:flex; justify-content:space-between; margin-bottom:6px; }
+
+/* Canvas VU styling (small shadow) */
+canvas { border-radius: 6px; display: block; height: 10px; margin-top: 8px; }
+
+/* Footer */
+.footer {
+  margin-top: 18px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Error message */
+.error-msg { color: #ff6b6b; margin-top: 10px; }
+
+/* Some polish for small elements */
+small { color: var(--muted); }

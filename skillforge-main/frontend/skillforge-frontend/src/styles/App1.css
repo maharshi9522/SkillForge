@@ -1,0 +1,762 @@
+/* File: src/styles/App.css */
+
+/* Global Section Styles */
+.profile-section,
+.gamification-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #f8fafc; /* Softer light background for professionalism */
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06); /* Subtler shadow */
+  color: #1e293b;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-section::before,
+.gamification-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(74, 144, 226, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(74, 144, 226, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Headers */
+.profile-header,
+.gamification-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.profile-header h2,
+.gamification-header h2 {
+  font-size: 2.75rem; /* Slightly larger for impact */
+  font-weight: 700;
+  color: #1e293b; /* Darker for contrast on light bg */
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.025em;
+}
+
+.profile-header p,
+.gamification-header p {
+  font-size: 1.125rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Tabs */
+.tabs-container {
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.tabs {
+  display: flex;
+  overflow-x: auto;
+  gap: 0.5rem;
+  padding: 0.75rem 0;
+  border-bottom: 2px solid #e2e8f0; /* Softer border */
+  scrollbar-width: thin;
+  scrollbar-color: #4a90e2 #f1f5f9;
+}
+
+.tabs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.tabs::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.tabs::-webkit-scrollbar-thumb {
+  background: #4a90e2;
+  border-radius: 2px;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  padding: 0.875rem 1.75rem;
+  border-radius: 12px 12px 0 0; /* Rounded top corners */
+  cursor: pointer;
+  color: #64748b;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smoother transition */
+  white-space: nowrap;
+}
+
+.tab-btn:hover {
+  color: #4a90e2;
+  background: #e2e8f0;
+}
+
+.tab-btn.active {
+  color: #4a90e2;
+  background: #ffffff;
+  border-bottom: 2px solid #4a90e2;
+  box-shadow: 0 -2px 8px rgba(74, 144, 226, 0.1); /* Subtle lift */
+}
+
+.tab-panel {
+  min-height: 500px; /* Increased for better content breathing room */
+}
+
+/* Content Grid */
+.tab-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly wider min */
+  gap: 2rem;
+}
+
+.profile-card {
+  background: #1e293b; /* Darker, more professional navy */
+  border: 1px solid rgba(74, 144, 226, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(30, 41, 59, 0.1); /* Matching shadow */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #f1f5f9;
+  overflow: hidden;
+  position: relative; /* For potential pseudo-elements */
+}
+
+.profile-card.full-width {
+  grid-column: 1 / -1;
+}
+
+.profile-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4a90e2, #7c3aed); /* Accent bar on top */
+}
+
+.profile-card:hover {
+  box-shadow: 0 8px 32px rgba(74, 144, 226, 0.15);
+  transform: translateY(-4px);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(74, 144, 226, 0.3);
+  padding-bottom: 1rem;
+}
+
+.icon {
+  font-size: 1.75rem;
+  color: #60a5fa;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.card-header h3 {
+  margin: 0;
+  color: #f1f5f9;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.user-details p {
+  margin: 0.75rem 0;
+  color: #cbd5e1;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.edit-btn,
+.action-btn,
+.play-btn {
+  background: linear-gradient(135deg, #4a90e2, #3b82f6);
+  color: #ffffff;
+  border: none;
+  padding: 0.875rem 1.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.2);
+}
+
+.edit-btn:hover,
+.action-btn:hover,
+.play-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(74, 144, 226, 0.3);
+}
+
+.play-btn:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+  color: #e2e8f0;
+  box-shadow: none;
+  transform: none;
+}
+
+.chart-note {
+  text-align: center;
+  color: #94a3b8;
+  font-style: italic;
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+}
+
+/* Achievements */
+.achievements-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.achievement-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 1.25rem;
+  background: rgba(74, 144, 226, 0.08);
+  border-radius: 8px;
+  border-left: 4px solid #4a90e2;
+  transition: all 0.2s ease;
+}
+
+.achievement-item:hover {
+  background: rgba(74, 144, 226, 0.12);
+}
+
+.achievement-icon {
+  font-size: 1.25rem;
+  margin-right: 1rem;
+  color: #60a5fa;
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+}
+
+.achievement-item h4 {
+  margin: 0 0 0.25rem 0;
+  color: #f1f5f9;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.achievement-item p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 0.875rem;
+}
+
+/* Gamification Stats */
+.gamification-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(74, 144, 226, 0.08);
+  border-radius: 12px;
+  border: 1px solid rgba(74, 144, 226, 0.2);
+  transition: all 0.2s ease;
+}
+
+.stat-item:hover {
+  background: rgba(74, 144, 226, 0.12);
+}
+
+.stat-icon {
+  font-size: 2.25rem;
+  color: #60a5fa;
+  margin-bottom: 0.75rem;
+}
+
+.stat-item h4 {
+  margin: 0.75rem 0;
+  color: #1e293b;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.stat-item p {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+/* Calendar */
+.calendar-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  background: rgba(74, 144, 226, 0.08);
+  padding: 8px;
+  border-radius: 8px;
+  max-width: 180px;
+  margin: 0 auto;
+  font-size: 0.75rem;
+  overflow: hidden;
+  border: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: 4px;
+}
+
+.calendar-day-header {
+  text-align: center;
+  font-weight: 600;
+  color: #1e293b;
+  padding: 4px;
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.calendar-week {
+  display: contents;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 4px;
+  color: #64748b;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 1;
+  border: 1px solid #e2e8f0;
+}
+
+.calendar-day:hover {
+  background: #4a90e2;
+  color: #ffffff;
+  z-index: 2;
+  transform: scale(1.05);
+}
+
+.calendar-day.active {
+  background: #3b82f6;
+  color: white;
+  border-color: #2563eb;
+}
+
+.calendar-day.active:hover {
+  background: #2563eb;
+}
+
+/* Gamification Overview Stats */
+.gamification-stats-overview {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: #1e293b;
+  border: 1px solid rgba(74, 144, 226, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  flex: 1;
+  min-width: 220px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #f1f5f9;
+  position: relative;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4a90e2, #7c3aed);
+  border-radius: 12px 12px 0 0;
+}
+
+.stat-icon {
+  font-size: 3rem;
+  color: #60a5fa;
+  margin-bottom: 1rem;
+}
+
+.stat-card h3 {
+  margin: 1rem 0;
+  color: #f1f5f9;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.stat-card p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(30, 41, 59, 0.2);
+}
+
+/* Progress Wrapper */
+.progress-wrapper {
+  background: #1e293b;
+  border: 1px solid rgba(74, 144, 226, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: #f1f5f9;
+  position: relative;
+}
+
+.progress-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4a90e2, #7c3aed);
+  border-radius: 12px 12px 0 0;
+}
+
+.chart-title {
+  color: #f1f5f9;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Leaderboard - Enhanced for Clarity */
+.leaderboard-section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #4a90e2, #7c3aed);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+.leaderboard-table {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.leaderboard-table thead {
+  background: linear-gradient(135deg, #4a90e2, #3b82f6);
+  color: #ffffff;
+}
+
+.leaderboard-table th {
+  padding: 1.25rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.leaderboard-table tbody tr {
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.leaderboard-table tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.leaderboard-table tbody tr:hover {
+  background: #e2e8f0;
+  transform: scale(1.01);
+}
+
+.leaderboard-table td {
+  padding: 1.25rem 1rem;
+  color: #1e293b;
+}
+
+.leaderboard-table td:first-child {
+  font-weight: 700;
+  color: #4a90e2;
+  font-size: 1.1rem;
+}
+
+/* No Data State */
+.leaderboard-section p {
+  text-align: center;
+  color: #64748b;
+  font-style: italic;
+  padding: 2rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+/* Badges & Mini-Games Sections */
+.badges-section,
+.mini-games-section {
+  margin-bottom: 3rem;
+}
+
+.badges-grid,
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.badge-card,
+.game-card {
+  background: #1e293b;
+  border: 1px solid rgba(74, 144, 226, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  color: #f1f5f9;
+}
+
+.badge-card::before,
+.game-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4a90e2, #7c3aed);
+  border-radius: 12px 12px 0 0;
+}
+
+.badge-card.unlocked {
+  border-left: 5px solid #10b981; /* Green for unlocked */
+  background: #0f172a;
+}
+
+.badge-card.locked {
+  opacity: 0.8;
+  border-left: 5px solid #94a3b8;
+}
+
+.badge-card:hover,
+.game-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(30, 41, 59, 0.2);
+}
+
+.badge-icon-wrapper,
+.game-icon {
+  font-size: 3rem;
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.badge-card .badge-icon-wrapper svg,
+.game-icon svg {
+  color: #60a5fa;
+}
+
+.lock-icon,
+.unlock-icon {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 1rem;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 0.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.lock-icon {
+  color: #94a3b8;
+}
+
+.unlock-icon {
+  color: #10b981;
+  background: #dcfce7;
+}
+
+.badge-card h4,
+.game-card h4 {
+  color: #f1f5f9;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.badge-description,
+.condition,
+.game-card p {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.condition {
+  font-style: italic;
+  color: #94a3b8;
+}
+
+.game-status {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(74, 144, 226, 0.08);
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  color: #4a90e2;
+  font-size: 1rem;
+  border: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+/* Error Message */
+.error-message {
+  background: #fef2f2;
+  color: #dc2626;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #ef4444;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-section,
+  .gamification-section {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .profile-header h2,
+  .gamification-header h2 {
+    font-size: 2.25rem;
+  }
+
+  .gamification-stats-overview {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .badges-grid,
+  .games-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .tab-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .tabs {
+    flex-direction: row; /* Keep horizontal, but allow scroll */
+    gap: 0.25rem;
+  }
+
+  .tab-btn {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .leaderboard-table {
+    font-size: 0.85rem;
+  }
+
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .calendar-container {
+    max-width: 160px;
+    font-size: 0.7rem;
+    padding: 6px;
+  }
+
+  .calendar-day-header {
+    padding: 3px;
+    font-size: 0.7rem;
+  }
+
+  .calendar-day {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gamification-stats-overview .stat-card,
+  .profile-card {
+    padding: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+}
